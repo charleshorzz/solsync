@@ -7,6 +7,7 @@ module.exports = function override(config, env) {
         stream: require.resolve("stream-browserify"),
         buffer: require.resolve("buffer"),
     }
+    
     config.resolve.extensions = [...config.resolve.extensions, ".ts", ".js"]
     config.plugins = [
         ...config.plugins,

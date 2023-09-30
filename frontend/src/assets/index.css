@@ -1,0 +1,29 @@
+main {
+  min-height: 80vh;
+}
+
+.btn{
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: #05206e;
+  padding: 10px 30px;
+  border: solid #0c04de 2px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition : 1000ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn:hover{
+  transition : 1000ms;
+  padding: 10px 50px;
+  transform : translateY(-0px);
+  background-color: #81e4f7;
+  color: #0066cc;
+  border: solid 2px #0066cc;
+}

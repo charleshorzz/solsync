@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Connection } from '@solana/web3.js';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { Row, Col } from 'react-bootstrap'
-import AnikiHamster from "../assets/AnikiHamster.json"
-import Lottie from 'lottie-react'
-import Success from "../assets/Success.json"
-import '../App.css'
+import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
 import './ResultBox.css';
-import { Container, Card} from 'react-bootstrap';
 
 const ResultBox = ({ numTx, useDelay, initialDelay }) => {
   const endpoint = 'https://stylish-restless-sheet.solana-devnet.discover.quiknode.pro/4785d23d03f566851f11e97f29b5787cb6b048e8/';
@@ -17,10 +12,6 @@ const ResultBox = ({ numTx, useDelay, initialDelay }) => {
   const [transactionData, setTransactionData] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Loading state
   const records = JSON.parse(localStorage.getItem("records") || "[]");
-  const style = {
-    height: 400,
-    width: 600
-  }  
 
   const fetchData = async () => {
     try {
@@ -54,69 +45,33 @@ const ResultBox = ({ numTx, useDelay, initialDelay }) => {
   }, [publicKey, numTx, solanaConnection, initialDelay]);
 
   if (isLoading && useDelay) {
+    // Render loading state while data is being fetched
     return (
-    <Row className='flex align-center'>
-        <Col md={12}>
-          <Lottie animationData={AnikiHamster} loop={true}className='hamster' style={style}/>
-          <h1 className='deploying'>Deploying Smart Contracts to Solana blockchain...</h1>
-        </Col>
-    </Row>
-    )
-  } else {
+      <div className="text-center">
+        <Spinner animation="border" variant="primary" />
+        <p>Fetching transaction data...</p>
+      </div>
+    );
+  } else if (!transactionData.length) {
     // Render empty state when no transactions are found
+    return (
       <div className="text-center">
         <p>No transactions found.</p>
       </div>
+    );
   }
 
   return (
-    <Container>
-      {useDelay ? (<>
-        <Lottie animationData={Success} loop={false}className='hamster' style={style}/>
-      <h1>Transaction Results</h1>
-        <div className="transaction-history-container">
-        {transactionData.map((tx, index) => {
-          const matchingRecord = records.find((record) => record.signature === tx.signature);
-          const transactionStatus = tx.confirmationStatus === 'finalized' ? 'success' : 'warning';
-          return (
-            <Card key={index} className={`mb-3 transaction-card ${transactionStatus}`}>
-              <Card.Body>
-                <Row>
-                  <Col md={12}>
-                    <a href={`https://explorer.solana.com/tx/${tx?.signature}?cluster=devnet`}>
-                    <strong>Transaction Signature:</strong> {tx?.signature}
-                    </a>
-                  </Col>
-                  <Col md={4}>
-                    <strong>Status:</strong> {tx.confirmationStatus}
-                  </Col>
-                  <Col md={4}>
-                    <strong>Timestamp:</strong> {new Date(tx.blockTime * 1000).toLocaleString()}
-                  </Col>
-                  {matchingRecord && (
-                    <>
-                      <Col md={4}>
-                        <strong>Amount:</strong> {matchingRecord.amount} sol
-                      </Col>
-                      <Col md={8}>
-                        <strong>Description:</strong> {matchingRecord.description}
-                      </Col>
-                    </>
-                  )}
-                </Row>
-              </Card.Body>
-            </Card>
-          );
-        })}
-      </div>
-      </>
-      ) : (
-      <>
-      <h2>Transaction History</h2>
-      <div className="transaction-history-container">
+  <Container>
+    {useDelay ? <h1>Transaction Results</h1> : <h2>Transaction History</h2>}
+    
+    {/* Apply the container style to the transaction history */}
+    <div className="transaction-history-container">
       {transactionData.map((tx, index) => {
         const matchingRecord = records.find((record) => record.signature === tx.signature);
-        const transactionStatus = tx.confirmationStatus === 'finalized' ? 'success' : 'warning';
+
+        const transactionStatus = tx.confirmationStatus === 'confirmed' ? 'success' : 'warning';
+
         return (
           <Card key={index} className={`mb-3 transaction-card ${transactionStatus}`}>
             <Card.Body>
@@ -146,11 +101,12 @@ const ResultBox = ({ numTx, useDelay, initialDelay }) => {
         );
       })}
     </div>
-      </>)}
   </Container>
-  );
-};
+);
+}  
 
 export default ResultBox;
+
+
 
 

@@ -15,19 +15,19 @@ import HomeScreen from './screens/HomeScreen';
 import CreateLinkScreen from './screens/CreateLinkScreen';
 import AboutScreen from './screens/AboutScreen';
 // Ignore this curly red line
-import LoginScreen from './screens/LoginScreen';
 import ResultScreen from './screens/ResultScreen';
 import DashboardScreen from './screens/DashboardScreen';
+import AddRecipientsScreen from './screens/AddRecipientsScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />} >
       <Route index={true} path='/' element={<HomeScreen />}/>
       <Route path='/create' element={<CreateLinkScreen />}/>
-      <Route path='/login' element={<LoginScreen />}/>
       <Route path='/about' element={<AboutScreen />}/>
       <Route path='/result' element={<ResultScreen />}/>
       <Route path='/dashboard' element={<DashboardScreen />}/>
+      <Route path='/recipients' element={<AddRecipientsScreen />}/>
     </Route>
   
   )

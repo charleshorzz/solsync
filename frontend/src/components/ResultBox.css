@@ -1,0 +1,10 @@
+/* ResultBox.css */
+.transaction-history-container {
+    background-color: #3bbd90; /* White background color */
+    border-radius: 25px; /* Rounded corners */
+    padding: 0px; /* Add some padding for spacing */
+    margin-top: 0px; /* Add top margin to separate it from the above content */
+    border-color: #ffffff;
+  }
+  
+  

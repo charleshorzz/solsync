@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.deploying {
+  margin: auto;
+  text-align: center;
+}
+
+.hamster {
+  margin:auto;
+  text-align: center;
+}

@@ -3,7 +3,7 @@ import React from 'react'
 const AboutScreen = () => {
   return (
     <div>
-      About us liaooo
+      We are Solsync.
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { Navbar, Nav, Container, Badge, NavDropdown } from "react-bootstrap"
 import { LinkContainer } from 'react-router-bootstrap'
 
 
+
 const Header = () => {
   return (
     <header>
@@ -14,21 +15,21 @@ const Header = () => {
             <Container>
                 <LinkContainer to='/'>
                     <Navbar.Brand>
-                        Solink
+                        Solsync
                     </Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls='basic-navbar-nav'/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className='ms-auto'>
-                        <LinkContainer to='/login' className='px-4'>
+                    <LinkContainer to='/recipients' className='px-4'>
                         <Nav.Link>
-                           Log In
+                           Add Recipients
                         </Nav.Link>
                         </LinkContainer>
-
+                        
                         <LinkContainer to='/dashboard' className='px-4'>
                         <Nav.Link>
-                           Dashboard
+                           Tracker
                         </Nav.Link>
                         </LinkContainer>
 

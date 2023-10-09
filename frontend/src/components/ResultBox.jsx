@@ -10,7 +10,7 @@ import './ResultBox.css';
 import { Container, Card} from 'react-bootstrap';
 
 const ResultBox = ({ numTx, useDelay, initialDelay }) => {
-  const endpoint = 'https://stylish-restless-sheet.solana-devnet.discover.quiknode.pro/4785d23d03f566851f11e97f29b5787cb6b048e8/';
+  const endpoint = 'https://muddy-multi-emerald.solana-devnet.quiknode.pro/3633fac1243fbb34b7ed486e1a60052a36ec74be/';
   const solanaConnection = new Connection(endpoint);
   const { publicKey } = useWallet();
 

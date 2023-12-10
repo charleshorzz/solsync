@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+Contributor
+1.
+2.
+3. Hello there! I'm CHONG KELVIN, one of the contributors of Beninging. Feel free to explore my [GitHub Profile](https://github.com/kelocker), where I host a variety of open-source projects and contributions. Whether you're interested in exploring innovative projects or seeking assistance with coding challenges, my GitHub repository is a hub for creativity and collaboration. Join me on this exciting journey of development and discovery!
